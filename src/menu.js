@@ -9,7 +9,7 @@ export class App {
 
     run(){
         const timerBlockHTML = this.#TimerModule.render();
-        document.body.append(timerBlockHTML);
+        document.body.append(timerBlockHTML)
     }
 }
 export class ContextMenu extends Menu {
