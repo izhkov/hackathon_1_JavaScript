@@ -11,11 +11,9 @@ export const welcomeMessage = () => {
   document.body.append(div)
   div.append(h1)
 
-  const timer = setTimeout(() => {
+  const timerId = setTimeout(() => {
     div.style.display = 'none'
   }, 8000)
-
-  timer()
 
   return div
 }
