@@ -56,7 +56,7 @@ export class TimerModule extends Module {
         this.timerDisplay.textContent = 'Время истекло'
         setTimeout(() => {
           this.timerContainer.remove()
-        }, 5000)
+        }, 3000)
         return
       }
 

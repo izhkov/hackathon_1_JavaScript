@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap');
 
 * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -40,140 +40,148 @@ body {
  }
 
 .menu .menu-item:hover {
-    background: #343434;
+  background: #343434;
 }
 
 .clicks-start-timer {
-    position: absolute;
-    float: left;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+  position: absolute;
+  float: left;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 
-    font-size: 72px;
-    font-weight: 700;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    color: cornflowerblue;
+  font-size: 72px;
+  font-weight: 700;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: cornflowerblue;
 }
 
 .click-circle {
-    position: absolute;
-    height: 20px;
-    width: 20px;
-    border-radius: 50%;
-    opacity: 0.3;
-    pointer-events: none;
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  opacity: 0.3;
+  pointer-events: none;
 }
 
 .sglclick-circle {
-    background-color: red;
+  background-color: red;
 }
 
 .dblclick-circle {
-    background-color: blue;
+  background-color: blue;
 }
 
 @keyframes opacityAnim {
-    from {
-        opacity: 0;
-    }
+  from {
+    opacity: 0;
+  }
 
-    to {
-        opacity: 1;
-    }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes fly {
-    from {
-        /* margin-top: 100px; */
-        opacity: 0;
-    }
+  from {
+    opacity: 0;
+  }
 
-    to {
-        /* margin-top: 150px; */
-        opacity: 1;
-    }
+  to {
+    opacity: 1;
+  }
 }
 
 .welcome__block {
-    display: block;
-    width: 100%;
-    margin: 0;
-    text-align: center;
-    animation: fly 4s ease-in-out infinite;
-    animation-direction: alternate;
-    animation-timing-function: cubic-bezier;
+  display: block;
+  width: 100%;
+  margin: 0;
+  text-align: center;
+  animation: fly 4s ease-in-out infinite;
+  animation-direction: alternate;
+  animation-timing-function: cubic-bezier;
 }
 
 .h1 {
-    font-size: 40px;
-    color: #333333;
-    font-style: bold;
-    font-family: Arial;
-    text-align: center;
-    animation: opacityAnim 2s ease-in-out infinite;
-    animation-direction: alternate;
-    animation-timing-function: cubic-bezier;
+  font-size: 40px;
+  color: #333333;
+  font-style: bold;
+  font-family: Arial;
+  text-align: center;
+  animation: opacityAnim 2s ease-in-out infinite;
+  animation-direction: alternate;
+  animation-timing-function: cubic-bezier;
 }
 
 #timer {
-    position: absolute;
-    top: 20%;
-    left: 45%;
-    transform: translate(-30%, 10%);
-    background-color: #f0f0f0;
-    min-width: 300px;
-    height: 220px;
-    border-radius: 8px;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-    overflow: hidden;
+  position: absolute;
+  top: 20%;
+  left: 45%;
+  transform: translate(-30%, 10%);
+  background-color: #f0f0f0;
+  min-width: 300px;
+  height: 220px;
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 
 .timer-text {
-    font-size: 36px;
-    padding: 10px;
+  font-size: 36px;
+  padding: 10px;
 }
 
 #timerDisplay {
-    font-size: 50px;
-    font-weight: bold;
-    margin-bottom: 10px;
+  font-size: 50px;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
 #timerInput {
-    width: 200px;
-    padding: 5px;
-    margin-bottom: 10px;
+  width: 200px;
+  padding: 5px;
+  margin-bottom: 10px;
 }
 
 #startButton {
-    background-color: #e74c3c;
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 4px;
-    cursor: pointer;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
 }
- .warningsP {
-    font-size: 28px;
-    padding: 10px;
+.warningsP {
+  font-size: 28px;
+  padding: 10px;
+}
+
+@keyframes customMessage {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .custom-block {
   position: absolute;
-  bottom: 0;
-  right: 0;
+  bottom: 10px;
+  right: 10px;
   margin: 0;
   padding: 10px 20px;
   width: 400px;
   background: #29c5e6;
   font-family: 'Oswald', sans-serif;
   font-weight: 300;
+  animation: customMessage 1s ease-in-out;
 }
 
 .custom-block p {
@@ -181,3 +189,4 @@ body {
   font-style: italic;
   font-size: 33px;
   margin: 0;
+}

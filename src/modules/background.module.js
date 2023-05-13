@@ -1,8 +1,8 @@
 import { Module } from '@/core/module'
 
 export class BackgroundModule extends Module {
-    constructor() {
-        super('background-module', 'Изменить фон');
+    constructor(type, text) {
+        super(type, text);
     }
     trigger() {
         document.body.style.background = this.#randomColor()
@@ -19,4 +19,3 @@ export class BackgroundModule extends Module {
     }
 
 }
-
