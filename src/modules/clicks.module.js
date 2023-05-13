@@ -55,6 +55,7 @@ export class ClicksModule extends Module {
     // Действия при окончании отсчета и вызывает отчет
     #onTimeoutDown() {
         this.isTriggered = false;
+        this.timerUntilStop = null;
         this.#showAnalytics();
     }
 
@@ -101,13 +102,16 @@ export class ClicksModule extends Module {
                 return;
             }
         }
+
+        
+        this.singleClickCount = 0;
+        this.doubleClickCount = 0;
+        this.prepareTimerCount = 3;
+
         this.clicksCircles.removeCircles()
 
         this.#createPrepareTimer();
         this.#startPrepareTimer();
-
-        this.singleClickCount = 0;
-        this.doubleClickCount = 0;
 
 
     }
