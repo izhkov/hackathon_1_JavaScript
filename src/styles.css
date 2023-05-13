@@ -1,130 +1,164 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap');
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
 }
 
 body {
-  font-size: 14px;
-  font-family: 'Roboto', sans-serif;
-  height: 100vh;
-  width: 100%;
-  padding: 2rem;
-  background-color: #f5f5f5;
-}
+      font-size: 14px;
+      font-family: 'Roboto', sans-serif;
+      height: 100vh;
+      width: 100%;
+      padding: 2rem;
+  }
 
 .menu {
-  position: fixed;
-  z-index: 1000;
-  min-width: 150px;
-  background: #1b1a1a;
-  border-radius: 5px;
-  display: none;
-  list-style: none;
-}
+    position: fixed;
+      z-index: 1000;
+      width: 150px;
+      background: #1b1a1a;
+      border-radius: 5px;
+      display: none;
+      list-style: none;
+}  
 
 .menu.open {
-  display: block;
-}
+    display: block;
+ } 
 
 .menu .menu-item {
-  padding: 8px 10px;
-  font-size: 1rem;
-  color: #eee;
-  cursor: pointer;
-  transition: background-color 0.2s ease-in;
-  border-radius: inherit;
-}
+    padding: 8px 10px;
+      font-size: 1rem;
+      color: #eee;
+      cursor: pointer;
+      transition: background-color .2s ease-in;
+      border-radius: inherit;
+ } 
 
 .menu .menu-item:hover {
-  background: #343434;
+    background: #343434;
+}
+
+.clicks-start-timer {
+    position: absolute;
+    float: left;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    font-size: 72px;
+    font-weight: 700;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: cornflowerblue;
+}
+
+.click-circle {
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.sglclick-circle {
+    background-color: red;
+}
+
+.dblclick-circle {
+    background-color: blue;
 }
 
 @keyframes opacityAnim {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 @keyframes fly {
-  from {
-    /* margin-top: 100px; */
-    opacity: 0;
-  }
-  to {
-    /* margin-top: 150px; */
-    opacity: 1;
-  }
+    from {
+        /* margin-top: 100px; */
+        opacity: 0;
+    }
+
+    to {
+        /* margin-top: 150px; */
+        opacity: 1;
+    }
 }
 
 .welcome__block {
-  display: block;
-  width: 100%;
-  margin: 0;
-  text-align: center;
-  animation: fly 4s ease-in-out infinite;
-  animation-direction: alternate;
-  animation-timing-function: cubic-bezier;
+    display: block;
+    width: 100%;
+    margin: 0;
+    text-align: center;
+    animation: fly 4s ease-in-out infinite;
+    animation-direction: alternate;
+    animation-timing-function: cubic-bezier;
 }
 
 .h1 {
-  font-size: 40px;
-  color: #333333;
-  font-style: bold;
-  font-family: Arial;
-  text-align: center;
-  animation: opacityAnim 2s ease-in-out infinite;
-  animation-direction: alternate;
-  animation-timing-function: cubic-bezier;
+    font-size: 40px;
+    color: #333333;
+    font-style: bold;
+    font-family: Arial;
+    text-align: center;
+    animation: opacityAnim 2s ease-in-out infinite;
+    animation-direction: alternate;
+    animation-timing-function: cubic-bezier;
 }
+
 #timer {
-  position: absolute;
-  top: 20%;
-  left: 45%;
-  transform: translate(-30%, 10%);
-  background-color: #f0f0f0;
-  min-width: 300px;
-  height: 220px;
-  border-radius: 8px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-  overflow: hidden;
+    position: absolute;
+    top: 20%;
+    left: 45%;
+    transform: translate(-30%, 10%);
+    background-color: #f0f0f0;
+    min-width: 300px;
+    height: 220px;
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    overflow: hidden;
 }
+
 .timer-text {
-  font-size: 36px;
-  padding: 10px;
+    font-size: 36px;
+    padding: 10px;
 }
 
 .warningsP {
-  font-size: 28px;
-  padding: 10px;
+    font-size: 28px;
+    padding: 10px;
 }
+
 #timerDisplay {
-  font-size: 50px;
-  font-weight: bold;
-  margin-bottom: 10px;
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom: 10px;
 }
 
 #timerInput {
-  width: 200px;
-  padding: 5px;
-  margin-bottom: 10px;
+    width: 200px;
+    padding: 5px;
+    margin-bottom: 10px;
 }
 
 #startButton {
-  background-color: #e74c3c;
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 4px;
-  cursor: pointer;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
 }
