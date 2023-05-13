@@ -1,5 +1,16 @@
 import { Menu } from './core/menu'
 
+export class App {
+    #TimerModule
+    constructor() {
+        this.#TimerModule = new TimerModule;
+    } 
+
+    run(){
+        const timerBlockHTML = this.#TimerModule.render();
+        document.body.append(timerBlockHTML)
+    }
+}
 export class ContextMenu extends Menu {
   constructor(selector) {
     super(selector)
@@ -7,7 +18,7 @@ export class ContextMenu extends Menu {
 
   open() {
     document.addEventListener('contextmenu', (event) => {
-      // event.preventDefault()
+      event.preventDefault()
       this.el.style.top = `${event.clientY}px`
       this.el.style.left = `${event.clientX}px`
       this.el.classList.add('open')
