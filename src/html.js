@@ -1,3 +1,4 @@
+// Welcome block
 export const welcomeMessage = () => {
   const div = document.createElement('div')
   const h1 = document.createElement('h1')
@@ -10,11 +11,11 @@ export const welcomeMessage = () => {
   document.body.append(div)
   div.append(h1)
 
-  const timerId = setTimeout(() => {
+  const timer = setTimeout(() => {
     div.style.display = 'none'
   }, 8000)
 
-  timerId()
+  timer()
 
   return div
 }
