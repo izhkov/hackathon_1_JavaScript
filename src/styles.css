@@ -190,3 +190,12 @@ body {
   font-size: 33px;
   margin: 0;
 }
+
+.clock {
+  position: absolute;
+  top: 48%;
+  right: 30%;
+  width: 225px;
+  font-size: 60px;
+  background-color: lightgreen;
+}
