@@ -12,9 +12,9 @@ export class TimerModule extends Module {
 
     this.countdown = null
 
-    this.#startButton.addEventListener("click", () => {
-      this.startTimer();
-    });
+    this.startButton.addEventListener('click', () => {
+      this.startTimer()
+    })
   }
 
   render() {
