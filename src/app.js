@@ -6,6 +6,7 @@ import { ClicksModule } from './modules/clicks.module'
 import { MessagesModule } from './modules/messages.module'
 import { ShapeModule } from './modules/shape.module'
 import { BackgroundModule } from './modules/background.module'
+import { ClockModule } from './modules/time.module'
 
 const contextMenu = new ContextMenu('#menu')
 const timerModule = new TimerModule('timer', 'Таймер отсчета')
@@ -19,6 +20,7 @@ const backgroundModule = new BackgroundModule(
   'background',
   'Поменять цвет фона'
 )
+const clockModule = new ClockModule('clock', 'Часы')
 
 welcomeMessage()
 
@@ -29,7 +31,8 @@ modules.push(
   clicksModule,
   messagesModule,
   shapedModule,
-  backgroundModule
+  backgroundModule,
+  clockModule
 )
 modules.forEach((module) => {
   contextMenu.add(module)
@@ -55,5 +58,8 @@ document.addEventListener('click', (event) => {
   }
   if (target.dataset.type === 'background') {
     backgroundModule.trigger()
+  }
+  if (target.dataset.type === 'clock') {
+    clockModule.trigger()
   }
 })
