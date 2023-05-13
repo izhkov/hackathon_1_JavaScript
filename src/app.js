@@ -20,8 +20,8 @@ contextMenu.close()
 
 document.addEventListener('click', (event) => {
   const { target } = event
-
-  if (target.dataset.type === 'timer') {
-    timerModule.trigger()
+  
+  if (target.dataset.type === 'timer') {   
+      timerModule.trigger()
   }
 })
