@@ -7,7 +7,7 @@ export class ContextMenu extends Menu {
 
   open() {
     document.addEventListener('contextmenu', (event) => {
-      // event.preventDefault()
+      event.preventDefault()
       this.el.style.top = `${event.clientY}px`
       this.el.style.left = `${event.clientX}px`
       this.el.classList.add('open')
