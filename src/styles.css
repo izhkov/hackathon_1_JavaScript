@@ -82,3 +82,22 @@ body {
   animation-direction: alternate;
   animation-timing-function: cubic-bezier;
 }
+
+.custom-block {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 0;
+  padding: 10px 20px;
+  width: 400px;
+  background: #29c5e6;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 300;
+}
+
+.custom-block p {
+  color: #fff;
+  font-style: italic;
+  font-size: 33px;
+  margin: 0;
+}
