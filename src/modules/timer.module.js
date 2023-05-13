@@ -11,10 +11,10 @@ export class TimerModule extends Module {
     this.timerDisplay = document.createElement("div");
     this.closeButton = document.createElement("button");
     this.countdown = null;
+    this.timerRunning = false;
 
     this.startButton.addEventListener("click", () => {
       this.startTimer();
-      
     });
     this.closeButton.addEventListener("click", () => {
       this.closeTimer();
@@ -58,9 +58,8 @@ export class TimerModule extends Module {
 
   startTimer() {
     const timeInSeconds = parseInt(this.timerInput.value);
-
     if (isNaN(timeInSeconds)) {
-      this.timerDisplay.textContent = "";
+      this.timerDisplay.textContent = "Введите цифру";
       return;
     }
 
@@ -79,7 +78,7 @@ export class TimerModule extends Module {
       this.displayTime(seconds);
       seconds--;
     }, 1000);
-
+    this.timerInput.value = "";
     this.timerInput.remove();
     this.startButton.remove();
   }
@@ -118,8 +117,8 @@ export class TimerModule extends Module {
     return time < 10 ? `0${time}` : time;
   }
 
-  trigger() {
-    const timerBlockHTML = this.render();
-    document.body.append(timerBlockHTML);
-  }
+trigger() {
+  const timerBlockHTML = this.render();
+  document.body.append(timerBlockHTML);
+}
 }

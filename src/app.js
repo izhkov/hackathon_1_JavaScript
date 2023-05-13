@@ -18,10 +18,13 @@ modules.forEach((module) => {
 contextMenu.open()
 contextMenu.close()
 
+
 document.addEventListener('click', (event) => {
   const { target } = event
   
-  if (target.dataset.type === 'timer') {   
+  if (target.dataset.type === 'timer') {
+      timerModule.closeTimer()
       timerModule.trigger()
+      timerModule.timerDisplay.textContent = ''
   }
 })
