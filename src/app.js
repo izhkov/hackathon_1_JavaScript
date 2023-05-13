@@ -5,6 +5,7 @@ import { TimerModule } from './modules/timer.module'
 import { ClicksModule } from './modules/clicks.module'
 import { MessagesModule } from './modules/messages.module'
 import { ShapeModule } from './modules/shape.module'
+import { BackgroundModule } from './modules/background.module'
 
 const contextMenu = new ContextMenu('#menu')
 const timerModule = new TimerModule('timer', 'Таймер отсчета')
@@ -14,12 +15,22 @@ const clicksModule = new ClicksModule(
 )
 const messagesModule = new MessagesModule('messages', 'Кастомное сообщение')
 const shapedModule = new ShapeModule('shape', 'Случайная фигура')
+const backgroundModule = new BackgroundModule(
+  'background',
+  'Поменять цвет фона'
+)
 
 welcomeMessage()
 
 const modules = []
 
-modules.push(timerModule, clicksModule, messagesModule, shapedModule)
+modules.push(
+  timerModule,
+  clicksModule,
+  messagesModule,
+  shapedModule,
+  backgroundModule
+)
 modules.forEach((module) => {
   contextMenu.add(module)
 })
@@ -41,5 +52,8 @@ document.addEventListener('click', (event) => {
   }
   if (target.dataset.type === 'shape') {
     shapedModule.trigger()
+  }
+  if (target.dataset.type === 'background') {
+    backgroundModule.trigger()
   }
 })
