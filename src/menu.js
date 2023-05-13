@@ -1,5 +1,16 @@
 import { Menu } from './core/menu'
 
+export class App {
+    #TimerModule
+    constructor() {
+        this.#TimerModule = new TimerModule;
+    } 
+
+    run(){
+        const timerBlockHTML = this.#TimerModule.render();
+        document.body.append(timerBlockHTML)
+    }
+}
 export class ContextMenu extends Menu {
   constructor(selector) {
     super(selector)
