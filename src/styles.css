@@ -82,3 +82,12 @@ body {
   animation-direction: alternate;
   animation-timing-function: cubic-bezier;
 }
+
+.clock {
+  position: absolute;
+  top: 48%;
+  right: 30%;
+  width: 225px;
+  font-size: 60px;
+  background-color: lightgreen;
+}
