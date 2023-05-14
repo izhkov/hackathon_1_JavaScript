@@ -8,6 +8,7 @@ import { ShapeModule } from './modules/shape.module'
 import { BackgroundModule } from './modules/background.module'
 import { ClockModule } from './modules/time.module'
 import { CatImageModule } from './modules/cat-image-module'
+// import { СalculatorModule } from './modules/calculator.module'
 
 const contextMenu = new ContextMenu('#menu')
 const timerModule = new TimerModule('timer', 'Таймер отсчета')
@@ -23,6 +24,7 @@ const backgroundModule = new BackgroundModule(
 )
 const clockModule = new ClockModule('clock', 'Часы')
 const catModule = new CatImageModule('cat', 'Модуль с котиками')
+// const calculatorModule = new СalculatorModule('calculator', 'Калькулятор')
 
 welcomeMessage()
 
@@ -36,6 +38,7 @@ modules.push(
   backgroundModule,
   clockModule,
   catModule
+  // calculatorModule
 )
 modules.forEach((module) => {
   contextMenu.add(module)
@@ -70,4 +73,7 @@ document.addEventListener('click', (event) => {
   if (target.dataset.type === 'cat') {
     catModule.trigger()
   }
+  // if (target.dataset.type === 'calculator') {
+  //   calculatorModule.trigger()
+  // }
 })
