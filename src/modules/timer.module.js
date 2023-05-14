@@ -10,6 +10,15 @@ export class TimerModule extends Module {
     this.timerInput = document.createElement('input')
     this.timerDisplay = document.createElement('div')
     this.closeButton = document.createElement('button')
+    this.countdown = null
+    this.timerRunning = false
+
+    this.timerContainer = document.createElement('div')
+    this.timerTextHTML = document.createElement('h2')
+    this.startButton = document.createElement('button')
+    this.timerInput = document.createElement('input')
+    this.timerDisplay = document.createElement('div')
+    this.closeButton = document.createElement('button')
 
     this.countdown = null
     this.timerRunning = false
@@ -34,10 +43,14 @@ export class TimerModule extends Module {
     this.startButton.id = 'startButton'
     this.startButton.textContent = 'Старт'
 
+    this.startButton.id = 'startButton'
+    this.startButton.textContent = 'Старт'
+
     this.timerDisplay.id = 'timerDisplay'
     this.closeButton.id = 'close-button'
 
     this.timerContainer.append(
+      this.closeButton,
       this.closeButton,
       this.timerTextHTML,
       this.timerInput,
@@ -52,9 +65,13 @@ export class TimerModule extends Module {
     this.timerContainer.remove()
   }
 
+  closeTimer() {
+    clearInterval(this.countdown)
+    this.timerContainer.remove()
+  }
+
   startTimer() {
     const timeInSeconds = parseInt(this.timerInput.value)
-
     if (isNaN(timeInSeconds)) {
       this.timerDisplay.textContent = ''
       this.timerDisplay.textContent = 'Введите цифру'
