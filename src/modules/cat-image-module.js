@@ -21,6 +21,7 @@ export class CatImageModule extends Module {
   #createImg() {
     const img = document.createElement('img')
     img.classList.add('catImages', 'hidden')
+    img.style.borderRadius = '10px'
 
     return img
   }
