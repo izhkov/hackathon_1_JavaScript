@@ -1,3 +1,6 @@
+import { ContextMenu } from './menu'
+const contextMenu = new ContextMenu('#menu')
+
 // Welcome block
 export const welcomeMessage = (text) => {
   const div = document.createElement('div')
@@ -9,6 +12,10 @@ export const welcomeMessage = (text) => {
 
   document.body.append(div)
   div.append(h1)
+
+  document.addEventListener('contextmenu', (event) => {
+    event.preventDefault()
+  })
 
   const timerId = setTimeout(() => {
     div.style.display = 'none'
@@ -53,7 +60,6 @@ export const userName = () => {
   userNameTitle.textContent = 'Ваше имя'
   userNameInput.className = 'username__input'
   userNameSubmit.className = 'username__submit'
-  userNameSubmit.id = 'submit'
   userNameSubmit.textContent = 'Отправить'
 
   userNameBlock.append(innerBlock)
@@ -69,6 +75,8 @@ export const userName = () => {
     const { target } = event
     if (userNameInput.value && target.className === 'username__submit') {
       userNameBlock.style.display = 'none'
+      contextMenu.open()
+      contextMenu.close()
       welcomeMessage2(
         `Привет ${userNameInput.value}. Для начала работы нажми правую кнопку мыши! Там много интересного :)`
       )

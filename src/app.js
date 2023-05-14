@@ -41,8 +41,8 @@ modules.forEach((module) => {
   contextMenu.add(module)
 })
 
-contextMenu.open()
-contextMenu.close()
+// contextMenu.open()
+// contextMenu.close()
 
 document.addEventListener('click', (event) => {
   const { target } = event
