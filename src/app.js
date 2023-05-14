@@ -41,11 +41,14 @@ modules.forEach((module) => {
 contextMenu.open()
 contextMenu.close()
 
+
 document.addEventListener('click', (event) => {
   const { target } = event
-
+  
   if (target.dataset.type === 'timer') {
-    timerModule.trigger()
+      timerModule.closeTimer()
+      timerModule.trigger()
+      timerModule.timerDisplay.textContent = ''
   }
   if (target.dataset.type === 'clicks') {
     clicksModule.trigger()
