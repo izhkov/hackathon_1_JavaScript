@@ -9,11 +9,16 @@ export class TimerModule extends Module {
     this.startButton = document.createElement('button')
     this.timerInput = document.createElement('input')
     this.timerDisplay = document.createElement('div')
+    this.closeButton = document.createElement('button')
 
     this.countdown = null
+    this.timerRunning = false
 
     this.startButton.addEventListener('click', () => {
       this.startTimer()
+    })
+    this.closeButton.addEventListener('click', () => {
+      this.closeTimer()
     })
   }
 
@@ -30,8 +35,10 @@ export class TimerModule extends Module {
     this.startButton.textContent = 'Старт'
 
     this.timerDisplay.id = 'timerDisplay'
+    this.closeButton.id = 'close-button'
 
     this.timerContainer.append(
+      this.closeButton,
       this.timerTextHTML,
       this.timerInput,
       this.startButton,
@@ -40,11 +47,17 @@ export class TimerModule extends Module {
     return this.timerContainer
   }
 
+  closeTimer() {
+    clearInterval(this.countdown)
+    this.timerContainer.remove()
+  }
+
   startTimer() {
     const timeInSeconds = parseInt(this.timerInput.value)
 
     if (isNaN(timeInSeconds)) {
       this.timerDisplay.textContent = ''
+      this.timerDisplay.textContent = 'Введите цифру'
       return
     }
 
@@ -56,14 +69,14 @@ export class TimerModule extends Module {
         this.timerDisplay.textContent = 'Время истекло'
         setTimeout(() => {
           this.timerContainer.remove()
-        }, 3000)
+        }, 2000)
         return
       }
 
       this.displayTime(seconds)
       seconds--
     }, 1000)
-
+    this.timerInput.value = ''
     this.timerInput.remove()
     this.startButton.remove()
   }

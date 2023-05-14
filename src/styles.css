@@ -202,28 +202,59 @@ body {
 }
 
 .catImages {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 50%;
-    max-height: 100%;
-    animation: opacityAnim 1s ease-in;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 50%;
+  max-height: 100%;
+  animation: opacityAnim 1s ease-in;
 }
 
 div.loader {
-    margin-left: auto;
-    margin-right: auto;
-    vertical-align: top;
-    text-align: center;
-    width: 40%;
+  margin-left: auto;
+  margin-right: auto;
+  vertical-align: top;
+  text-align: center;
+  width: 40%;
 }
 
 .loaderText {
-    display: block;
-    font-size: 32px;
-    font-family: 'Roboto', sans-serif;
+  display: block;
+  font-size: 32px;
+  font-family: 'Roboto', sans-serif;
 }
 
 .hidden {
-    display: none;
+  display: none;
+}
+
+#close-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+#close-button::before,
+#close-button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 2px;
+  background-color: #000;
+  transform: translate(-50%, -50%);
+}
+
+#close-button::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+#close-button::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
 }
