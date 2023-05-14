@@ -10,6 +10,14 @@ export class TimerModule extends Module {
     this.timerInput = document.createElement("input");
     this.timerDisplay = document.createElement("div");
     this.closeButton = document.createElement("button");
+    this.audioStart = document.createElement("audio");
+    this.audioClose = document.createElement("audio");
+    this.audioFinish = document.createElement("audio");
+    this.audioError = document.createElement("audio");
+    this.audioClock = document.createElement("audio");
+    
+
+
     this.countdown = null;
     this.timerRunning = false;
 
@@ -17,6 +25,7 @@ export class TimerModule extends Module {
       this.startTimer();
     });
     this.closeButton.addEventListener("click", () => {
+      this.audioClose.play()
       this.closeTimer();
     });;
 
@@ -35,6 +44,18 @@ export class TimerModule extends Module {
     this.startButton.id = "startButton";
     this.startButton.textContent = "Старт";
 
+    this.audioStart.id = 'audio-Start'
+    this.audioStart.src = 'src/audio/mlg-airhorn.mp3'
+
+    this.audioFinish.id = 'audio-Finish'
+    this.audioFinish.src = 'src/audio/eralash.mp3'
+
+    this.audioError.id = ' this.audioError'
+    this.audioError.src = 'src/audio/nepravilno.mp3'
+
+    this.audioClock.id = ' this.audioError'
+    this.audioClock.src = 'src/audio/gendal.mp3'
+
     this.closeButton.id = "close-button"
     
     this.timerDisplay.id = "timerDisplay";
@@ -44,7 +65,11 @@ export class TimerModule extends Module {
       this.timerTextHTML,
       this.timerInput,
       this.startButton,
-      this.timerDisplay
+      this.timerDisplay,
+      this.audioStart,
+      this.audioFinish,
+      this.audioError,
+      this.audioClock
     );
     return this.timerContainer;
   }
@@ -52,6 +77,7 @@ export class TimerModule extends Module {
 
   closeTimer() {
     clearInterval(this.countdown);
+    this.audioClock.pause();
     this.timerContainer.remove();
   }
 
@@ -60,21 +86,32 @@ export class TimerModule extends Module {
     const timeInSeconds = parseInt(this.timerInput.value);
     if (isNaN(timeInSeconds)) {
       this.timerDisplay.textContent = "Введите цифру";
+      this.audioError.play()
       return;
+    } else {
+      this.audioStart.play()
     }
 
     let seconds = timeInSeconds;
-
+    setTimeout(() => {
+      this.audioClock.play()
+    }, 2000);
+    
+     
+ 
+    
     this.countdown = setInterval(() => {
       if (seconds <= 0) {
+        this.audioClock.pause()
         clearInterval(this.countdown);
         this.timerDisplay.textContent = "Время истекло"
+        this.audioFinish.play() 
         setTimeout(() => {
           this.timerContainer.remove();
-        }, 2000);
+        }, 1800);
         return;
       }
-
+     
       this.displayTime(seconds);
       seconds--;
     }, 1000);
@@ -118,7 +155,9 @@ export class TimerModule extends Module {
   }
 
 trigger() {
+  this.audioClose.id = 'audioClose'
+  this.audioClose.src = 'src/audio/minecraft.mp3'
   const timerBlockHTML = this.render();
-  document.body.append(timerBlockHTML);
+  document.body.append(timerBlockHTML, this.audioClose);
 }
 }
