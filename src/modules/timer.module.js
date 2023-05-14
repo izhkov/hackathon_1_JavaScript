@@ -70,12 +70,12 @@ export class TimerModule extends Module {
         clearInterval(this.countdown);
         this.timerDisplay.textContent = "Время истекло"
         setTimeout(() => {
+
           this.timerContainer.remove();
         }, 2000);
         return;
-      }
 
-      this.displayTime(seconds);
+        this.displayTime(seconds);
       seconds--;
     }, 1000);
     this.timerInput.value = "";
