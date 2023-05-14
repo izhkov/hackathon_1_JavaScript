@@ -1,7 +1,8 @@
-import { Module } from "../core/module";
+import { Module } from '../core/module'
 
 export class TimerModule extends Module {
   constructor(type, text) {
+
     super(type, text);
 
     this.timerContainer = document.createElement("div");
@@ -29,20 +30,20 @@ export class TimerModule extends Module {
       this.closeTimer();
     });;
 
-
   }
 
   render() {
-    this.timerContainer.id = "timer";
-    this.timerTextHTML.className = "timer-text";
-    this.timerTextHTML.textContent = "Таймер";
+    this.timerContainer.id = 'timer'
+    this.timerTextHTML.className = 'timer-text'
+    this.timerTextHTML.textContent = 'Таймер'
 
-    this.timerInput.type = "number";
-    this.timerInput.id = "timerInput";
-    this.timerInput.placeholder = "Введите время (в секундах)";
+    this.timerInput.type = 'number'
+    this.timerInput.id = 'timerInput'
+    this.timerInput.placeholder = 'Введите время (в секундах)'
 
-    this.startButton.id = "startButton";
-    this.startButton.textContent = "Старт";
+    this.startButton.id = 'startButton'
+    this.startButton.textContent = 'Старт'
+
 
     this.audioStart.id = 'audio-Start'
     this.audioStart.src = 'src/audio/mlg-airhorn.mp3'
@@ -62,9 +63,11 @@ export class TimerModule extends Module {
 
     this.timerContainer.append(
       this.closeButton,
+      this.closeButton,
       this.timerTextHTML,
       this.timerInput,
       this.startButton,
+
       this.timerDisplay,
       this.audioStart,
       this.audioFinish,
@@ -72,19 +75,22 @@ export class TimerModule extends Module {
       this.audioClock
     );
     return this.timerContainer;
+
   }
 
-
   closeTimer() {
+
     clearInterval(this.countdown);
     this.audioClock.pause();
     this.timerContainer.remove();
   }
 
 
+
   startTimer() {
-    const timeInSeconds = parseInt(this.timerInput.value);
+    const timeInSeconds = parseInt(this.timerInput.value)
     if (isNaN(timeInSeconds)) {
+
       this.timerDisplay.textContent = "Введите цифру";
       this.audioError.play()
       return;
@@ -119,40 +125,41 @@ export class TimerModule extends Module {
     this.timerInput.value = "";
     this.timerInput.remove();
     this.startButton.remove();
+
   }
 
   displayTime(seconds) {
-    const hours = Math.floor(seconds / 3600);
-    const minutes = Math.floor((seconds % 3600) / 60);
-    const remainingSeconds = seconds % 60;
+    const hours = Math.floor(seconds / 3600)
+    const minutes = Math.floor((seconds % 3600) / 60)
+    const remainingSeconds = seconds % 60
 
-    const formattedHours = hours > 0 ? this.formatTime(hours) : "";
-    const formattedMinutes = minutes > 0 ? this.formatTime(minutes) : "";
-    const formattedSeconds = this.formatTime(remainingSeconds);
+    const formattedHours = hours > 0 ? this.formatTime(hours) : ''
+    const formattedMinutes = minutes > 0 ? this.formatTime(minutes) : ''
+    const formattedSeconds = this.formatTime(remainingSeconds)
 
-    let displayTime = "";
+    let displayTime = ''
     if (formattedHours) {
-      displayTime += `${formattedHours}:`;
+      displayTime += `${formattedHours}:`
     }
     if (formattedMinutes) {
-      displayTime += `${formattedMinutes}:`;
+      displayTime += `${formattedMinutes}:`
     }
-    displayTime += formattedSeconds;
+    displayTime += formattedSeconds
 
-    this.timerDisplay.textContent = displayTime;
-    const randomColor = this.getRandomColor();
-    this.timerDisplay.style.color = randomColor;
+    this.timerDisplay.textContent = displayTime
+    const randomColor = this.getRandomColor()
+    this.timerDisplay.style.color = randomColor
   }
   getRandomColor() {
-    const letters = "0123456789ABCDEF";
-    let color = "#";
+    const letters = '0123456789ABCDEF'
+    let color = '#'
     for (let i = 0; i < 6; i++) {
-      color += letters[Math.floor(Math.random() * 16)];
+      color += letters[Math.floor(Math.random() * 16)]
     }
-    return color;
+    return color
   }
   formatTime(time) {
-    return time < 10 ? `0${time}` : time;
+    return time < 10 ? `0${time}` : time
   }
 
 trigger() {
@@ -161,4 +168,5 @@ trigger() {
   const timerBlockHTML = this.render();
   document.body.append(timerBlockHTML, this.audioClose);
 }
+
 }

@@ -7,6 +7,7 @@ import { MessagesModule } from './modules/messages.module'
 import { ShapeModule } from './modules/shape.module'
 import { BackgroundModule } from './modules/background.module'
 import { ClockModule } from './modules/time.module'
+import { CatImageModule } from './modules/cat-image-module'
 
 const contextMenu = new ContextMenu('#menu')
 const timerModule = new TimerModule('timer', 'Таймер отсчета')
@@ -21,8 +22,9 @@ const backgroundModule = new BackgroundModule(
   'Поменять цвет фона'
 )
 const clockModule = new ClockModule('clock', 'Часы')
+const catModule = new CatImageModule('cat', 'Модуль с котиками')
 
-welcomeMessage()
+welcomeMessage('Добро пожаловать! Введите Ваше имя!')
 
 const modules = []
 
@@ -32,7 +34,8 @@ modules.push(
   messagesModule,
   shapedModule,
   backgroundModule,
-  clockModule
+  clockModule,
+  catModule
 )
 modules.forEach((module) => {
   contextMenu.add(module)
@@ -41,14 +44,13 @@ modules.forEach((module) => {
 contextMenu.open()
 contextMenu.close()
 
-
 document.addEventListener('click', (event) => {
   const { target } = event
-  
+
   if (target.dataset.type === 'timer') {
-      timerModule.closeTimer()
-      timerModule.trigger()
-      timerModule.timerDisplay.textContent = ''
+    timerModule.closeTimer()
+    timerModule.trigger()
+    timerModule.timerDisplay.textContent = ''
   }
   if (target.dataset.type === 'clicks') {
     clicksModule.trigger()
@@ -64,5 +66,8 @@ document.addEventListener('click', (event) => {
   }
   if (target.dataset.type === 'clock') {
     clockModule.trigger()
+  }
+  if (target.dataset.type === 'cat') {
+    catModule.trigger()
   }
 })
