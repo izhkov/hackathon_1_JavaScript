@@ -107,6 +107,7 @@ export class TimerModule extends Module {
         this.timerDisplay.textContent = "Время истекло"
         this.audioFinish.play() 
         setTimeout(() => {
+
           this.timerContainer.remove();
         }, 1800);
         return;
